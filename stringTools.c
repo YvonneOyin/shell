@@ -23,7 +23,7 @@ int _putchar(char c)
  *
  * Return: Nothing
  */
-void _puts(char *str)
+void _print_text(char *str)
 {
 	int i;
 

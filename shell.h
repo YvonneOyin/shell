@@ -11,7 +11,7 @@
 extern char **environ;
 
 int _putchar(char);
-void _puts(char *);
+void _print_text(char *str);
 
 /* string manipulation */
 int _strlen(char *);
