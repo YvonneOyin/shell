@@ -2,42 +2,32 @@
 
 int main(void)
 {
-    char *buffer = NULL;
-    size_t buf_size = 0;
-    ssize_t len;
-    char *token;
-    char **argv;
-    int i = 0;
-    while (1)
+    char *buffer;
+    char *argv[1024];
+    int buf_len = _strlen(buffer), argg;
+    while (true)
     {
-        write(1, "$ ", 2);
-        len = getline(&buffer, &buf_size, stdin);
-        if(len == -1)
+        buffer = get_input();
+        if (buffer == NULL)
         {
-            free(buffer);
+            _print_text("\n");
             break;
         }
-        token = strtok(buffer, " \t\n");
-        argv = malloc (sizeof(char *) * 1024);
-
-        while (token != NULL)
+        if (buf_len == 0)
         {
-            argv[i] = token;
-            token = strtok(NULL, " \t\n");
-            // write(1, argv[i], 30);
-            i++;
-        }
-        argv[i] = NULL;
-
-        for (int j = 0; j < i; j++)
-        {
-            printf("Token %d: %s\n", j, argv[j]);
+            free(buffer);
+            continue;
         }
 
-        free(argv);
-        i = 0;
+        argg = parse_input(buffer, argv);
+        if (argg > 0)
+        {
+            execute_input(argv);
+        }
+        
+
     }
-        free(buffer);
-    
+    free(buffer);
+
     return (0);
 }

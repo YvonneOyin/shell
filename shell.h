@@ -13,6 +13,9 @@ extern char **environ;
 
 int _putchar(char);
 void _print_text(char *str);
+char *get_input();
+int parse_input(char *input, char **argv);
+void execute_input(char **argv);
 
 /* string manipulation */
 int _strlen(char *);
