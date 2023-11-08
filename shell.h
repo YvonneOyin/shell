@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdbool.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -20,7 +21,7 @@ int _strcmp(char *, char *);
 char *_strcat(char *, char *);
 char *_strchr(char *, char);
 
-void prompt(__attribute__((unused))int);
+// void prompt(__attribute__((unused))int);
 
 
 #endif 

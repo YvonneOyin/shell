@@ -17,7 +17,7 @@ int _putchar(char c)
 }
 
 /**
- * _puts - prints an input string
+ * _print_text - prints text
  *
  * @str: the string to be printed
  *
