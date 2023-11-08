@@ -68,4 +68,4 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 * write (man 2 write)
 
 ## Contact
-If you have any questions, suggestions, or feedback, feel free to reach out to me at [gmail](olufemioyindamola37@gmail.com). You can also find me on [Twitter](https://twitter.com/Yvonne_Oyinda) and my partner, Segun Ojo, on [github](https://github.com/).
+If you have any questions, suggestions, or feedback, feel free to reach out to me at [gmail](olufemioyindamola37@gmail.com). You can also find me on [Twitter](https://twitter.com/Yvonne_Oyinda) and my partner, Segun Ojo, on [github](https://github.com/segunojo1).
