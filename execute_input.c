@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void execute_input(char **argv)
+void execute_input(char **argv, char *env)
 {
     pid_t pid;
     int statuss;
@@ -12,7 +12,7 @@ void execute_input(char **argv)
     }
     if (pid == 0)
     {
-        if (execve(argv[0], argv, NULL) == -1)
+        if (execve(argv[0], argv, env) == -1)
         {
             exit(2);
         }

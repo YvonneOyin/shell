@@ -16,7 +16,9 @@ int _putchar(char);
 void _print_text(char *str);
 char *get_input();
 int parse_input(char *input, char **argv);
-void execute_input(char **argv);
+void execute_input(char **argv, char *env);
+char *get_path(char *arg);
+char *get_full_path(char *path, char *arg);
 
 /* string manipulation */
 int _strlen(char *);
