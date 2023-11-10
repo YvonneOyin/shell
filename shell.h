@@ -13,10 +13,10 @@
 extern char **environ;
 
 int _putchar(char);
-void _print_text(char *str);
-char *get_input();
-int parse_input(char *input, char **argv);
-void execute_input(char **argv);
+void _print_text(char *);
+char *get_inpt(void);
+int parse_inpt(char *, char **);
+void execut_inpt(char **);
 
 /* string manipulation */
 int _strlen(char *);
@@ -25,7 +25,7 @@ int _strcmp(char *, char *);
 char *_strcat(char *, char *);
 char *_strchr(char *, char);
 
-// void prompt(__attribute__((unused))int);
+/*void prompt(__attribute__((unused))int);*/
 
 
-#endif 
+#endif
