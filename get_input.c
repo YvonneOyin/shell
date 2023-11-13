@@ -37,22 +37,22 @@ char *get_inpt(void)
 	char *buffer = NULL;
 	size_t buf_size = 0;
 	ssize_t len;
-	int buf_len;
-
-	_print_text("$ ");
+	/*int buf_len;*/
+	if(isatty(0))
+	{
+		_print_text("$ ");
+	}
 	len = getline(&buffer, &buf_size, stdin);
-	buf_len = _strlen(buffer);
-	buffer[buf_len - 1] = '\0';
+	/*buf_len = _strlen(buffer);*/
+	printf("DEBUG: len = %ld\n", len);
+	
 	if (len == -1)
 	{
 		free(buffer);
 		return (NULL);
 	}
-	if (len == 1)
-	{
-		free(buffer);
-		return (NULL);
-	}
+	
+	buffer[len - 1] = '\0';
 
 	return (buffer);
 }
