@@ -20,6 +20,7 @@ char *get_inpt(void);
 int parse_inpt(char *, char **);
 char *get_path(char *arg);
 void execut_inpt(char **, char **);
+int get_built_in(char **);
 
 /* string manipulation */
 int _strlen(char *);

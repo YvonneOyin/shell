@@ -13,8 +13,14 @@ void execut_inpt(char **argv, char **env)
 	int statuss;
 	char *path;
 
-	c_pid = fork();
 	path = get_path(argv[0]);
+	if (path == NULL)
+	{
+		if(get_built_in(argv) != 0)
+			perror("Command not found");
+	}
+
+	c_pid = fork();
 
 	if (c_pid == -1)
 	{
@@ -24,10 +30,10 @@ void execut_inpt(char **argv, char **env)
 
 	if (c_pid == 0)
 	{
-		printf("close to exec");
+		
 		if (execve(path, argv, env) == -1)
 		{
-			printf("exec error");
+			perror("Command not found\n");
 			exit(2);
 		}
 	}

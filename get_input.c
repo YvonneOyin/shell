@@ -44,7 +44,6 @@ char *get_inpt(void)
 	}
 	len = getline(&buffer, &buf_size, stdin);
 	/*buf_len = _strlen(buffer);*/
-	printf("DEBUG: len = %ld\n", len);
 	
 	if (len == -1)
 	{
