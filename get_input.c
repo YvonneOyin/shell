@@ -15,10 +15,12 @@ int parse_inpt(char *inpt, char **argv)
 
 	while (token != NULL)
 	{
-		argv[i] = token;
-		token = strtok(NULL, " \t\n");
-/*		write(1, argv[i], 30); */
-		i++;
+		if (i < MAX_ARGS - 1)
+		{
+			argv[i] = token;
+			token = strtok(NULL, " \t\n");
+			i++;
+		}
 	}
 	argv[i] = NULL;
 
@@ -42,6 +44,11 @@ char *get_inpt(void)
 	buf_len = _strlen(buffer);
 	buffer[buf_len - 1] = '\0';
 	if (len == -1)
+	{
+		free(buffer);
+		return (NULL);
+	}
+	if (len == 1)
 	{
 		free(buffer);
 		return (NULL);

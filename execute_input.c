@@ -16,13 +16,16 @@ void execut_inpt(char **argv, char **env)
 
 	if (c_pid == -1)
 	{
+		printf("fork failed");
 		exit(1);
 	}
 
 	if (c_pid == 0)
 	{
+		printf("close to exec");
 		if (execve(argv[0], argv, env) == -1)
 		{
+			printf("exec error");
 			exit(2);
 		}
 	}

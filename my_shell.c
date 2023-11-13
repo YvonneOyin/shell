@@ -18,6 +18,7 @@ int main()
 		buf_len = _strlen(buffer);
 		if (buffer == NULL)
 		{
+			free(buffer);
 			_print_text("\n");
 			break;
 		}
@@ -33,8 +34,8 @@ int main()
 		{
 			execut_inpt(argv, environ);
 		}
+		free(buffer);
 	}
-	free(buffer);
 
 	return (0);
 }

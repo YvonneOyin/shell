@@ -16,7 +16,7 @@ char *get_full_path(char *path, char *arg)
 
         if (access(full_path, F_OK) == 0)
         {
-            /*memory leak here*/
+            free(path_dup);
             return (full_path);
         }
         token = strtok(NULL, ":");
@@ -25,7 +25,7 @@ char *get_full_path(char *path, char *arg)
     free(path_dup);
     free(full_path);
 
-    return (full_path);
+    return (NULL);
     
 }
 

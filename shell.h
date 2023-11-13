@@ -10,6 +10,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+#define MAX_ARGS 1024
+
 extern char **environ;
 
 int _putchar(char);
