@@ -5,16 +5,17 @@
  *
  * Return: 0 to indicate success
  */
-int main(int c, char *argvv, char *env)
+int main()
 {
 	char *buffer;
 	char *argv[1024];
-    char *path;
-	int buf_len = _strlen(buffer), argg;
+    /*char *path;*/
+	int buf_len, argg;
 
 	while (true)
 	{
 		buffer = get_inpt();
+		buf_len = _strlen(buffer);
 		if (buffer == NULL)
 		{
 			_print_text("\n");
@@ -27,10 +28,10 @@ int main(int c, char *argvv, char *env)
 		}
 
 		argg = parse_inpt(buffer, argv);
-        path = get_path(argv[0]);
+        /*path = get_path(argv[0]);*/
 		if (argg > 0)
 		{
-			execut_inpt(argv, env);
+			execut_inpt(argv, environ);
 		}
 	}
 	free(buffer);

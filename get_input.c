@@ -11,7 +11,7 @@
 int parse_inpt(char *inpt, char **argv)
 {
 	int i = 0;
-	char *token = strtok(input, " \t\n");
+	char *token = strtok(inpt, " \t\n");
 
 	while (token != NULL)
 	{
@@ -36,12 +36,11 @@ char *get_inpt(void)
 	size_t buf_size = 0;
 	ssize_t len;
 	int buf_len;
-	char *arr;
 
 	_print_text("$ ");
 	len = getline(&buffer, &buf_size, stdin);
 	buf_len = _strlen(buffer);
-	buffer[buf_len - 1] = "\0";
+	buffer[buf_len - 1] = '\0';
 	if (len == -1)
 	{
 		free(buffer);

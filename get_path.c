@@ -4,8 +4,9 @@ char *get_full_path(char *path, char *arg)
 {
     char *token;
     char *path_dup = strdup(path);
+    char *full_path;
     token = strtok(path_dup, ":");
-    char *full_path = malloc(strlen(arg) + strlen(token) + 2);
+    full_path = malloc(strlen(arg) + strlen(token) + 2);
     while (token)
     {
         strcpy(full_path, token);
@@ -23,6 +24,8 @@ char *get_full_path(char *path, char *arg)
     }
     free(path_dup);
     free(full_path);
+
+    return (full_path);
     
 }
 
@@ -37,5 +40,5 @@ char *get_path(char *arg)
         path = get_full_path(path, arg);
         return (path);
     }
-    return;
+    return (path);
 }

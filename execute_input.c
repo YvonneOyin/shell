@@ -7,7 +7,7 @@
  *
  * Return: nothing
  */
-void execut_inpt(char **argv, char *env)
+void execut_inpt(char **argv, char **env)
 {
 	pid_t c_pid;
 	int statuss;

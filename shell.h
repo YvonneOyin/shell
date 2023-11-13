@@ -16,7 +16,8 @@ int _putchar(char);
 void _print_text(char *);
 char *get_inpt(void);
 int parse_inpt(char *, char **);
-void execut_inpt(char **);
+char *get_path(char *arg);
+void execut_inpt(char **, char **);
 
 /* string manipulation */
 int _strlen(char *);
