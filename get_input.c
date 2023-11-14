@@ -27,6 +27,7 @@ int parse_inpt(char *inpt, char **argv)
 	return (i);
 }
 
+
 /**
  * get_inpt - Displays the shell to prompt users for input
  *
@@ -38,6 +39,7 @@ char *get_inpt(void)
 	size_t buf_size = 0;
 	ssize_t len;
 	/*int buf_len;*/
+
 	if(isatty(0))
 	{
 		_print_text("$ ");
@@ -51,7 +53,12 @@ char *get_inpt(void)
 		return (NULL);
 	}
 	
-	buffer[len - 1] = '\0';
-
+	if (len > 0 && buffer[len - 1] == '\n')
+    {
+        buffer[len - 1] = '\0';
+    }else{
+	   free (buffer);
+	  return (NULL);
+    } 
 	return (buffer);
 }

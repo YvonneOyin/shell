@@ -15,7 +15,7 @@ void execut_inpt(char **argv, char **env)
 
 	path = get_path(argv[0]);
 	if (path == NULL)
-	{
+	  {
 		if(get_built_in(argv) != 0)
 			perror("Command not found");
 	}
@@ -42,4 +42,5 @@ void execut_inpt(char **argv, char **env)
 	{
 		wait(&statuss);
 	}
+	free(path);
 }

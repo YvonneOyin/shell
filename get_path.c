@@ -14,16 +14,18 @@ char *get_full_path(char *path, char *arg)
         strcat(full_path, arg);
         strcat(full_path, "\0");
 
-        if (access(full_path, F_OK) == 0)
+        if (access(full_path,X_OK) == 0)
         {
             free(path_dup);
+	    printf("%s", full_path);
             return (full_path);
         }
         token = strtok(NULL, ":");
+	free(full_path);
         
     }
     free(path_dup);
-    free(full_path);
+    
 
     return (NULL);
     
