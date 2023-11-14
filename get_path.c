@@ -17,13 +17,12 @@ char *get_full_path(char *path, char *arg)
         if (access(full_path,X_OK) == 0)
         {
             free(path_dup);
-	    printf("%s", full_path);
             return (full_path);
         }
         token = strtok(NULL, ":");
-	free(full_path);
         
     }
+    free(full_path);
     free(path_dup);
     
 
