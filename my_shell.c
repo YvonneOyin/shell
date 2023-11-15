@@ -1,27 +1,37 @@
 #include "shell.h"
 
 /**
- * main - a simple shell function
+ * sigint_handler - handles the sign in
+ *
+ * @signo: an integer type
+ *
+ * Return: void which is nothing
+ */
+void sigint_handler(int signo)
+{
+	(void)signo;
+	_print_text("\n");
+	exit(0);
+}
+
+/**
+ * main - Entry point
  *
  * Return: 0 to indicate success
  */
-
-void sigint_handler(int signo) {
-    (void)signo;
-    _print_text("\n");
-    exit(0);
-}
-int main()
+int main(void)
 {
 	char *buffer;
 	char *argv[1024];
 	/*char *path;*/
 	int buf_len, argg;
 
-    if (signal(SIGINT, sigint_handler) == SIG_ERR) {
-        perror("signal");
-        exit(EXIT_FAILURE);
-    }
+	if (signal(SIGINT, sigint_handler) == SIG_ERR)
+	{
+		perror("signal");
+		exit(EXIT_FAILURE);
+	}
+
 	while (true)
 	{
 		buffer = get_inpt();
@@ -29,6 +39,7 @@ int main()
 		{
 			break;
 		}
+
 		buf_len = strlen(buffer);
 		if (buf_len == 1)
 		{
@@ -42,9 +53,7 @@ int main()
 		{
 			execut_inpt(argv, environ);
 		}
-	        free (buffer);	
+		free(buffer);
 	}
-
 	return (0);
 }
-
