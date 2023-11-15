@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * get_full_path -
+ * get_full_path - gets the path
  *
- * @path:
- * @arg:
+ * @path: a character pointer to the path
+ * @arg:a character pointer to the argument
  *
- * Return:
+ * Return: a string of characters
  */
 char *get_full_path(char *path, char *arg)
 {
@@ -24,7 +24,7 @@ char *get_full_path(char *path, char *arg)
 
 		if (access(full_path, X_OK) == 0)
 		{
-			free (path_dup);
+			free(path_dup);
 			return (full_path);
 		}
 		token = strtok(NULL, ":");
@@ -36,11 +36,11 @@ char *get_full_path(char *path, char *arg)
 }
 
 /**
- * get_path -
+ * get_path - gets the path
  *
- * @arg:
+ * @arg: character pointer to argument
  *
- * Return:
+ * Return: a string of characters
  */
 char *get_path(char *arg)
 {
