@@ -20,7 +20,7 @@ int get_built_in(char **argv)
                 exit(2);
             }
         }
-		exit(2);
+		exit(0);
 	}
 
 	else if (strcmp(argv[0], "cd") == 0)
