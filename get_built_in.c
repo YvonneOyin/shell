@@ -12,14 +12,14 @@ int get_built_in(char **argv)
 	if (strcmp(argv[0], "exit") == 0)
 	{
 		if (argv[1] != NULL)
-        {
-		struct stat st;
-            if (stat(argv[1], &st) != 0)
-            {
-                
-                exit(2);
-            }
-        }
+		{
+			struct stat st;
+
+			if (stat(argv[1], &st) != 0)
+			{
+				exit(2);
+			}
+		}
 		exit(0);
 	}
 
@@ -34,5 +34,5 @@ int get_built_in(char **argv)
 			chdir(argv[1]);
 		}
 	}
-	return(0);
+	return (0);
 }
