@@ -21,6 +21,7 @@ char *get_full_path(char *path, char *arg)
 		strcpy(full_path, token);
 		strcat(full_path, "/");
 		strcat(full_path, arg);
+		strcat(full_path, "\0");
 
 		if (access(full_path, X_OK) == 0)
 		{
