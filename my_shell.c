@@ -30,7 +30,7 @@ int main(void)
 	char *buffer;
 	char *argv[1024];
 	/*char *path;*/
-	int buf_len, argg;
+	int buf_len, argg, i, status;
 
 	if (signal(SIGINT, sigint_handler) == SIG_ERR)
 	{
@@ -64,9 +64,38 @@ int main(void)
             }
 			else if (strcmp(argv[0], "exit") == 0)
 			{
-				free (buffer);
-				exit (0);
+				if (argv[1] == NULL)
+        {
+		free(buffer);
+            exit(0);
+        }
+			
+        else
+        {
+		for (i = 0; argv[1][i] != '\0'; i++)
+            {
+                if (!isdigit(argv[1][i]) && (i == 0 && argv[1][i] != '-'))
+                {
+			fprintf(stderr, "%s: %d: exit: Illegal number: %s\n", "./hsh", i+1, argv[1]);
+                    exit(2);  
+		}
+            }
+            status = atoi(argv[1]);
+	    free (buffer);
+            exit(status);
+        }
 			}
+			 else if (strcmp(argv[0], "cd") == 0)
+        {
+                if (argv[1] == NULL)
+                {
+                        chdir(getenv("HOME"));
+                }
+                else
+                {
+                        chdir(argv[1]);
+                }
+        }
 			execut_inpt(argv, environ);
 		}
 		free(buffer);

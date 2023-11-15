@@ -11,6 +11,7 @@
 #include <sys/stat.h>
 #include <signal.h>
 #include <errno.h>
+#include <ctype.h>
 
 #define MAX_ARGS 1024
 
