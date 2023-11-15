@@ -20,13 +20,11 @@ void execut_inpt(char **argv, char **env)
 		if (get_built_in(argv) != 0)
 		{
 			perror("built in fail oo");
-			exit (2);
-		}         
-
+			exit(2);
+		}
 	}
 
 	c_pid = fork();
-
 	if (c_pid == -1)
 	{
 		printf("fork failed");
@@ -40,12 +38,12 @@ void execut_inpt(char **argv, char **env)
 		{
 			perror("");
 			exit(2);
-		}	
+		}
 	}
 
 	else
 	{
 		wait(&statuss);
 	}
-	free (path);
+	free(path);
 }

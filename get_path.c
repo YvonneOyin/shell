@@ -63,8 +63,6 @@ char *get_path(char *arg)
 		{
 			return (new_path);
 		}
-		
 	}
-
 	return (NULL);
 }
