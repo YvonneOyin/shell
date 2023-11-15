@@ -13,6 +13,13 @@ void sigint_handler(int signo)
 	exit(0);
 }
 
+void print_environment(char **env) {
+    while (*env != NULL) {
+        printf("%s\n", *env);
+        env++;
+    }
+}
+
 /**
  * main - Entry point
  *
@@ -50,6 +57,16 @@ int main(void)
 		/*path = get_path(argv[0]);*/
 		if (argg > 0)
 		{
+			if (strcmp(argv[0], "env") == 0) {
+                print_environment(environ);
+                free(buffer);
+                continue;
+            }
+			else if (strcmp(argv[0], "exit") == 0)
+			{
+				free (buffer);
+				exit (0);
+			}
 			execut_inpt(argv, environ);
 		}
 		free(buffer);
