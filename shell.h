@@ -10,6 +10,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <signal.h>
+#include <errno.h>
 
 #define MAX_ARGS 1024
 
@@ -22,6 +23,7 @@ int parse_inpt(char *, char **);
 char *get_path(char *arg);
 void execut_inpt(char **, char **);
 int get_built_in(char **);
+char *findpath();
 
 /* string manipulation */
 int _strlen(char *);

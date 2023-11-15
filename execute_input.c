@@ -18,7 +18,11 @@ void execut_inpt(char **argv, char **env)
 	if (path == NULL)
 	{
 		if (get_built_in(argv) != 0)
-			perror("Command not found");
+		{
+			perror("built in fail oo");
+			exit (2);
+		}         
+
 	}
 
 	c_pid = fork();
@@ -34,14 +38,14 @@ void execut_inpt(char **argv, char **env)
 
 		if (execve(path, argv, env) == -1)
 		{
-			perror("Command not found\n");
+			perror("");
 			exit(2);
-		}
+		}	
 	}
 
 	else
 	{
 		wait(&statuss);
 	}
-	free(path);
+	free (path);
 }

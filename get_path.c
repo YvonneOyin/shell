@@ -15,9 +15,10 @@ char *get_full_path(char *path, char *arg)
 	char *full_path;
 
 	token = strtok(path_dup, ":");
-	full_path = malloc(strlen(arg) + strlen(token) + 2);
+	/*full_path = malloc(strlen(arg) + strlen(token) + 2);*/
 	while (token)
 	{
+		full_path = malloc(strlen(arg) + strlen(token) + 2);
 		strcpy(full_path, token);
 		strcat(full_path, "/");
 		strcat(full_path, arg);
@@ -29,8 +30,8 @@ char *get_full_path(char *path, char *arg)
 			return (full_path);
 		}
 		token = strtok(NULL, ":");
+		free(full_path);
 	}
-	free(full_path);
 	free(path_dup);
 
 	return (NULL);
@@ -57,12 +58,13 @@ char *get_path(char *arg)
 			return (new_path);
 		}
 
-		new_path = get_full_path("/usr/", arg);
+		new_path = get_full_path("/usr/local/sbin:/usr/local/:/usr/sbin:/usr/:/sbin:/", arg);
 		if (new_path != NULL)
 		{
 			return (new_path);
 		}
+		
 	}
 
-	return (path);
+	return (NULL);
 }

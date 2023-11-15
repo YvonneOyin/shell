@@ -10,7 +10,6 @@
 void sigint_handler(int signo)
 {
 	(void)signo;
-	_print_text("\n");
 	exit(0);
 }
 
@@ -28,7 +27,7 @@ int main(void)
 
 	if (signal(SIGINT, sigint_handler) == SIG_ERR)
 	{
-		perror("signal");
+		/*perror("signal");*/
 		exit(EXIT_FAILURE);
 	}
 
