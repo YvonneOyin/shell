@@ -24,8 +24,6 @@ char *get_full_path(char *path, char *arg)
     }
     free(full_path);
     free(path_dup);
-    
-
     return (NULL);
     
 }
@@ -33,13 +31,24 @@ char *get_full_path(char *path, char *arg)
 char *get_path(char *arg)
 {
     char *path;
+    char *full_path;
 
     path = getenv("PATH");
 
     if (path != NULL)
     {
-        path = get_full_path(path, arg);
-        return (path);
+       full_path = get_full_path(path, arg);
+        if (full_path != NULL) {
+            return full_path;
+        }
+
+     
+        full_path = get_full_path("/bin", arg);
+        if (full_path != NULL) {
+            return full_path;
+        }
     }
-    return (path);
+
+
+    return (NULL);
 }
