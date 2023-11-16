@@ -25,7 +25,6 @@ char *get_path(char *);
 void execut_inpt(char **, char **);
 int get_built_in(char **);
 char *get_full_path(char *, char *);
-void print_environment(char **)
 char *findpath();
 
 /* string manipulation */
