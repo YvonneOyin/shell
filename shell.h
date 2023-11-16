@@ -21,9 +21,11 @@ int _putchar(char);
 void _print_text(char *);
 char *get_inpt(void);
 int parse_inpt(char *, char **);
-char *get_path(char *arg);
+char *get_path(char *);
 void execut_inpt(char **, char **);
 int get_built_in(char **);
+char *get_full_path(char *, char *);
+void print_environment(char **)
 char *findpath();
 
 /* string manipulation */
