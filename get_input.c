@@ -18,9 +18,9 @@ int parse_inpt(char *inpt, char **argv)
 		if (i < MAX_ARGS - 1)
 		{
 			argv[i] = token;
-			token = strtok(NULL, " \t\n");
 			i++;
 		}
+		token = strtok(NULL, " /t/n");
 	}
 	argv[i] = NULL;
 
