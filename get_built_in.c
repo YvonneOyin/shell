@@ -1,7 +1,22 @@
 #include "shell.h"
+/**
+ * print_environment - prints the environment path like printenv
+ *
+ * @env: environment variable
+ *
+ * Return: nothing
+ */
+void print_environment(char **env)
+{
+	while (*env != NULL)
+	{
+		printf("%s\n", *env);
+		env++;
+	}
+}
 
 /**
- * get_built_in - gets
+ * get_built_in - it executes built in commands
  *
  * @argv: an array of character pointers
  *
@@ -9,18 +24,31 @@
  */
 int get_built_in(char **argv)
 {
-	if (strcmp(argv[0], "exit") == 0)
-	{
-		if (argv[1] != NULL)
-		{
-			struct stat st;
+	int i, status;
 
-			if (stat(argv[1], &st) != 0)
-			{
-				exit(2);
-			}
+	if (strcmp(argv[0], "env") == 0)
+	{
+		print_environment(environ);
+	}
+	else if (strcmp(argv[0], "exit") == 0)
+	{
+		if (argv[1] == NULL)
+		{
+			exit(0);
 		}
-		exit(0);
+		else
+		{
+			for (i = 0; argv[1][i] != '\0'; i++)
+			{
+				if (!isdigit(argv[1][i]) && (i == 0 && argv[1][i] != '-'))
+				{
+					fprintf(stderr, "error");
+					exit(2);
+				}
+			}
+			status = atoi(argv[1]);
+			exit(status);
+		}
 	}
 
 	else if (strcmp(argv[0], "cd") == 0)

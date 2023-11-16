@@ -19,7 +19,7 @@ void execut_inpt(char **argv, char **env)
 	{
 		if (get_built_in(argv) != 0)
 		{
-			perror("built in fail oo");
+			fprintf(stderr, "hsh: 1: %s: Command not found\n", argv[0]);
 			exit(2);
 		}
 	}
@@ -36,7 +36,7 @@ void execut_inpt(char **argv, char **env)
 
 		if (execve(path, argv, env) == -1)
 		{
-			perror("");
+			fprintf(stderr, "hsh: 1: %s: Command not found\n", argv[0]);
 			exit(2);
 		}
 	}

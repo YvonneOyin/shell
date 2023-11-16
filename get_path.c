@@ -3,15 +3,15 @@
 /**
  * get_full_path - gets the path
  *
- * @path: a character pointer to the path
+ * @ppath: a character pointer to the path
  * @arg:a character pointer to the argument
  *
  * Return: a string of characters
  */
-char *get_full_path(char *path, char *arg)
+char *get_full_path(char *ppath, char *arg)
 {
 	char *token;
-	char *path_dup = strdup(path);
+	char *path_dup = strdup(ppath);
 	char *full_path;
 
 	token = strtok(path_dup, ":");
@@ -46,19 +46,19 @@ char *get_full_path(char *path, char *arg)
  */
 char *get_path(char *arg)
 {
-	char *path;
+	char *paath;
 	char *new_path;
 
-	path = getenv("PATH");
-	if (path != NULL)
+	paath = getenv("PATH");
+	if (paath != NULL)
 	{
-		new_path = get_full_path(path, arg);
+		new_path = get_full_path(paath, arg);
 		if (new_path != NULL)
 		{
 			return (new_path);
 		}
 
-		new_path = get_full_path("/usr/local/sbin:/usr/local/:/usr/sbin:/usr/:/sbin:/", arg);
+		new_path = get_full_path("/usr/local/:/usr/sbin:/usr/:/sbin:/", arg);
 		if (new_path != NULL)
 		{
 			return (new_path);
