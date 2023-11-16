@@ -58,7 +58,7 @@ char *get_path(char *arg)
 			return (new_path);
 		}
 
-		new_path = get_full_path("/usr/local/sbin:/usr/local/:/usr/sbin:/usr/:/sbin:/", arg);
+		new_path = get_full_path("/usr/local/:/usr/sbin:/usr/:/sbin:/", arg);
 		if (new_path != NULL)
 		{
 			return (new_path);
