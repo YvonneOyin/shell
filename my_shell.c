@@ -22,7 +22,7 @@ int main(void)
 {
 	char *buffer, *token, *command, *argvv[1024];
 	char *argv[1024];
-	int buf_len, i, argg, num_commands;
+	int buf_len, i, argg, num_commands = 0;
 
 	if (signal(SIGINT, sigint_handler) == SIG_ERR)
 	{
@@ -30,6 +30,7 @@ int main(void)
 	}
 	while (true)
 	{
+		num_commands = 0;
 		buffer = get_inpt();
 		if (buffer == NULL)
 		{
@@ -51,7 +52,6 @@ int main(void)
 		{
 			command = argv[i];
 			argg = parse_inpt(command, argvv);
-
 			if (argg > 0)
 			{
 				execut_inpt(argvv, environ);
