@@ -30,6 +30,28 @@ int get_built_in(char **argv)
 	{
 		print_environment(environ);
 	}
+	else if (strcmp(argv[0], "setenv") == 0) {
+		if (argv[1] != NULL && argv[2] != NULL) {
+			if (setenv(argv[1], argv[2], 1) == 0) {
+
+			}
+		} else {
+			printf("hello");
+			fprintf(stderr, "setenv: Invalid syntax\n");
+			exit(EXIT_FAILURE);
+		}
+	}
+	else if (strcmp(argv[0], "unsetenv") == 0) {
+		if (argv[1] != NULL) {
+			if (unsetenv(argv[1]) == -1) {
+				fprintf(stderr, "unsetenv: Unable to unset environment variable\n");
+				exit(EXIT_FAILURE);
+			}
+		} else {
+			fprintf(stderr, "unsetenv: Invalid syntax\n");
+			exit(EXIT_FAILURE);
+		}
+	}
 	else if (strcmp(argv[0], "exit") == 0)
 	{
 		if (argv[1] == NULL)
