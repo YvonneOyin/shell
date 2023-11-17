@@ -33,21 +33,13 @@ int main(void)
 		num_commands = 0;
 		buffer = get_inpt();
 		if (buffer == NULL)
-		{
 			break;
-		}
 		if (strstr(buffer, ";") != NULL)
-		{
 			num_commands = colon_separator(num_commands, argv, buffer);
-		}
-		else if(strstr(buffer, "&&") != NULL)
-                {
-                        num_commands = and_separator(num_commands, argv, buffer);
-                }
+		else if (strstr(buffer, "&&") != NULL)
+			num_commands = and_separator(num_commands, argv, buffer);
 		else
-                {
-                        num_commands = or_separator(num_commands, argv, buffer);
-                }
+			num_commands = or_separator(num_commands, argv, buffer);
 		buf_len = strlen(buffer);
 		if (buf_len == 1)
 		{
