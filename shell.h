@@ -22,7 +22,7 @@ void _print_text(char *);
 char *get_inpt(void);
 int parse_inpt(char *, char **);
 char *get_path(char *);
-void execut_inpt(char **, char **);
+int execut_inpt(char **, char **);
 int get_built_in(char **);
 char *get_full_path(char *, char *);
 char *findpath();

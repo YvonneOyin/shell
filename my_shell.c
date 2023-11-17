@@ -46,6 +46,7 @@ int main(void)
 		for (i = 0; i < num_commands; ++i)
 		{
 			command = argv[i];
+
 			argg = parse_inpt(command, argvv);
 			if (argg > 0)
 			{

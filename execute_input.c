@@ -8,7 +8,7 @@
  *
  * Return: nothing
  */
-void execut_inpt(char **argv, char **env)
+int execut_inpt(char **argv, char **env)
 {
 	pid_t c_pid;
 	int statuss;
@@ -44,6 +44,9 @@ void execut_inpt(char **argv, char **env)
 	else
 	{
 		wait(&statuss);
+		free(path);
+		return (WEXITSTATUS(statuss));
 	}
 	free(path);
+	return (0);
 }
