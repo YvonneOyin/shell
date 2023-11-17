@@ -36,7 +36,18 @@ int main(void)
 		{
 			break;
 		}
-		num_commands = colon_separator(num_commands, argv, buffer);
+		if (strstr(buffer, ";") != NULL)
+		{
+			num_commands = colon_separator(num_commands, argv, buffer);
+		}
+		else if(strstr(buffer, "&&") != NULL)
+                {
+                        num_commands = and_separator(num_commands, argv, buffer);
+                }
+		else
+                {
+                        num_commands = or_separator(num_commands, argv, buffer);
+                }
 		buf_len = strlen(buffer);
 		if (buf_len == 1)
 		{

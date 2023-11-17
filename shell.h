@@ -27,6 +27,8 @@ int get_built_in(char **);
 char *get_full_path(char *, char *);
 char *findpath();
 int colon_separator(int, char **, char *);
+int and_separator(int, char **, char *);
+int or_separator(int, char **, char *);
 
 /* string manipulation */
 int _strlen(char *);
