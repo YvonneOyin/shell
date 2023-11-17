@@ -20,7 +20,7 @@ void sigint_handler(int signo)
  */
 int main(void)
 {
-	char *buffer, *token, *command, *argvv[1024];
+	char *buffer, *command, *argvv[1024];
 	char *argv[1024];
 	int buf_len, i, argg, num_commands = 0;
 
@@ -36,12 +36,7 @@ int main(void)
 		{
 			break;
 		}
-		token = strtok(buffer, ";");
-		while (token != NULL)
-		{
-			argv[num_commands++] = token;
-			token = strtok(NULL, ";");
-		}
+		num_commands = colon_separator(num_commands, argv, buffer);
 		buf_len = strlen(buffer);
 		if (buf_len == 1)
 		{
